@@ -1,0 +1,34 @@
+1  - install vim "su apt-get install vim"
+2  - install sudo "su apt-get install sudo"
+3  - add user to sudoers "su usermod -a -G sudo horacio"
+4  - logout and update sudoers
+5  - install aptitude and terminator "sudo apt-get install aptitude terminator"
+6  - add 'contrib' and 'non-free' to source.list at "/etc/apt/source.list"
+7  - update and upgrade "sudo apt-get update && sudo apt-get upgrade"
+
+8  - set dark theme
+9  - set touchpad options
+10 - set 'minimize', 'maximize' and 'run command' shortcuts
+
+11 - set firefox dark theme
+12 - set firefox youtube addon
+13 - set firefox adblockers 
+
+14 - install firmware "apt-get install bluez-firmware firmware-atheros firmware-iwlwifi firmware-linux firmware-linux-free firmware-linux-nonfree"
+
+15 - install bluetooth required packages "apt-get install bluetooth pulseaudio-module-bluetooth pavucontrol"
+16 - install texlive-full "apt-get install texlive-full"
+17 - install python and python3 "apt-get install python python3 ipython3 python-pip python3-pip"
+18 - install some utilites "apt-get install git subversion, gparted"
+19 - install emacs "apt-get install emacs25"
+20 - install Source Code Pro fonts from local disk
+21 - install spacemacs with git
+
+22 - install go
+23 - install ocaml, opam
+24 - install rust
+
+25 - setup terminator shortcuts
+
+26 - initialize emacs for the first time
+27 - copy init_spacemacs into /home/horacio/.spacemacs

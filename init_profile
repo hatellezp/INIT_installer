@@ -1,0 +1,7 @@
+# this is GOROOT-GOPATH
+export PATH=$PATH:/usr/local/go/bin
+export PATH="$PATH:/usr/local/go/bin"
+
+# this is the user dir for go
+export PATH=$PATH:/home/horacio/Langs/go/bin
+export PATH="$PATH:/home/horacio/Langs/go/bin"
