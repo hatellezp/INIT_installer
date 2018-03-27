@@ -97,6 +97,18 @@ echo "eval `opam config env`" >> /home/horacio/.profile
 source /home/horacio/.profile
 eval `opam config env`
 
+#some configuration for rust
+rustup self update 
+rustup component add rls-preview
+rustup component add rust-analysis
+rustup component add rust-src
+
+echo "---------------don't forget to modify nameres.rs on racer src------------"
+cargo install racer
+
+echo "export RUST_SRC_PATH=$(rustc --print sysroot)/lib/rustlib/src/rust/src" >> ~/.profile 
+source ~/.profile
+
 # exiting
 echo "------------------Exiting------------------------------------------------"
 exit
