@@ -1,30 +1,14 @@
 #!/bin/bash
 
-# update /etc/apt/sources.list
-echo "------------------Update /etc/apt/sources.list---------------------------"
-sudo cp /home/horacio/Documents/INIT_installer/init_sources.list /etc/apt/sources.list
-
-# update and upgrade apt
-echo "------------------Update and upgrade apt---------------------------------"
-sudo apt-get update
-sudo apt-get upgrade
-
-# install initials packages
-echo "------------------Install vim, sudo, terminator and aptitude-------------"
-sudo apt-get install vim sudo aptitude terminator
-
-# add user to sudoers
-echo "------------------Adding user to sudoers---------------------------------"
-sudo echo "horacio 	ALL=(ALL:ALL) ALL" >> /etc/sudoers
-sudo echo "sudo	ALL=(ALL:ALL) ALL" >> /etc/sudoers
+#there are something that should be done prior to calling installer.sh
 
 # install firmware ...
 echo "------------------Install related firmware-------------------------------"
-sudo apt-get install bluez-firmware firmware-atheros firmware-iwlwifi firmware-linux firmware-linux-free firmware-linux-nonfree firmware-ralink firmware-realtek
+sudo apt-get install bluez-firmware firmware-atheros firmware-iwlwifi firmware-linux firmware-linux-free firmware-linux-nonfree
 
 # install bluetooth packages
 echo "------------------Install bluetooth related packages---------------------"
-sudo apt-get install bluetooth pulseaudio-module-bluetooth pavucontrol
+sudo apt-get install bluez bluetooth pulseaudio-module-bluetooth pavucontrol
 
 # install python related packages
 echo "------------------Install python related packages------------------------"
@@ -32,7 +16,7 @@ sudo apt-get install python python3 ipython3 python-pip python3-pip
 
 # install texlive-full
 echo "------------------Install texlive-full-----------------------------------"
-sudo apt-get install texlive-full
+sudo apt-get install texlive-full kile*
 
 # install git, gparted and subversion
 echo "------------------Install git, gparted and subversion--------------------"
@@ -52,7 +36,7 @@ sudo fc-cache -f -v
 echo "------------------Install golang-----------------------------------------"
 sudo tar -C /usr/local -xzf /home/horacio/Documents/INIT_installer/needed/go1.10.linux-amd64.tar.gz
 echo "------------------Update PATH for go-------------------------------------"
-cp /home/horacio/Documents/INIT_installer/init_profile /home/horacio/.profile
+#we are doing after ocaml do its thing
 source /home/horacio/.profile
 
 # install ocaml, opam
@@ -80,6 +64,15 @@ pip install --upgrade "jedi>=0.9.0" "json-rpc>=1.8.0" "service_factory>=0.1.5"
 pip install flake8
 pip install autoflake
 pip install hy
+
+#here we update go PATH, BIN
+echo "export PATH=$PATH:/usr/local/go/bin" >> ~/.profile 
+echo "export PATH=$PATH:$HOME/Langs/go/bin" >> ~/.profile 
+echo "export GOBIN=$GOBIN:$HOME/Langs/go" >> ~/.profile 
+echo "export GOBIN=$GOBIN:$HOME/Langs/go/bin" >> ~/.profile 
+
+echo "export GOPATH=$HOME/Langs/go/bin" >> ~/.profile 
+
 go get -u -v github.com/nsf/gocode
 go get -u -v github.com/rogpeppe/guru
 go get -u -v golang.org/x/tools/cmd/guru
